@@ -1,0 +1,29 @@
+{
+  "scenario": "tool_failure",
+  "title": "工具失败-read异常",
+  "question": "年假有几天？",
+  "final_status": "tool_error",
+  "final_answer": "抱歉，工具「read」调用失败：工具 read 调用失败：read_document 服务暂时不可用（模拟故障）\n本次无法给出可靠回答，请稍后重试，或换个说法再问一次。",
+  "citations": [],
+  "decision_rationale": "检索命中 1 篇 -> 选择读取最高分文档核对原文；读取原文 -> 根据内容决定定案/继续查证/追问；工具失败 -> 返回明确失败状态，不给出无依据回答",
+  "steps": [
+    {
+      "step": 0,
+      "action": "search",
+      "tool_params": {
+        "query": "年假有几天？"
+      },
+      "result_type": "HITS",
+      "return_summary": "- [D03] 员工年假管理制度 (版本日期 2023-01-10, 适用范围 全体员工, 优先级: 无)\n  摘要: 第三条 年假天数\n3.1 员工工作满 1 年不满 10 年的，年休假 5 天；满 10 …"
+    },
+    {
+      "step": 1,
+      "action": "read",
+      "tool_params": {
+        "doc_id": "D03"
+      },
+      "result_type": "ERROR",
+      "return_summary": "工具 read 调用失败：read_document 服务暂时不可用（模拟故障）"
+    }
+  ]
+}

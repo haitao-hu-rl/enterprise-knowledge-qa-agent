@@ -1,0 +1,20 @@
+{
+  "scenario": "out_of_scope",
+  "title": "资料外问题-追问",
+  "question": "公司健身房怎么预约？",
+  "final_status": "needs_clarification",
+  "final_answer": "未能在知识库中找到与您问题相关的文档。请问您能补充一些关键词，例如具体制度名称、业务场景或文档编号吗？",
+  "citations": [],
+  "decision_rationale": "检索无结果 -> 判定资料不足，选择追问；发现冲突且无优先级/资料不足 -> 请求用户确认",
+  "steps": [
+    {
+      "step": 0,
+      "action": "search",
+      "tool_params": {
+        "query": "公司健身房怎么预约？"
+      },
+      "result_type": "EMPTY",
+      "return_summary": "检索结果为空：未找到与问题相关的文档。"
+    }
+  ]
+}

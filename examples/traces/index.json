@@ -1,0 +1,30 @@
+{
+  "description": "企业知识问答 Agent 运行记录（Trace）索引",
+  "traces": [
+    {
+      "file": "01-normal-clear-answer.json",
+      "scenario": "normal",
+      "title": "正常场景-明确答案"
+    },
+    {
+      "file": "02-conflict-with-priority.json",
+      "scenario": "conflict",
+      "title": "文档冲突-优先级定案"
+    },
+    {
+      "file": "03-out-of-scope.json",
+      "scenario": "out_of_scope",
+      "title": "资料外问题-追问"
+    },
+    {
+      "file": "04-tool-failure.json",
+      "scenario": "tool_failure",
+      "title": "工具失败-read异常"
+    },
+    {
+      "file": "05-contextual-followup.json",
+      "scenario": "contextual_followup",
+      "title": "上下文追问-历史补全"
+    }
+  ]
+}
