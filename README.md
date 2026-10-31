@@ -43,13 +43,14 @@ python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\act
 pip install -r requirements.txt
 ```
 
-> 默认使用**离线 Mock 决策器**，**无需任何环境变量或 API Key** 即可运行。
-> 只有接入真实 LLM 时才需要配置 `.env`（见 `.env.example`）。
+> 支持两种决策模式：
+> - **离线 Mock 决策器**（默认）：不依赖任何外部服务，开箱即跑，用于验证 ReAct 流程闭环；
+> - **真实 LLM 决策器**（可选）：通过 `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL` 接入大模型（见 `.env.example`）。
 
 ## 运行方式（CLI）
 
 ```bash
-# 单个问题（默认离线 Mock 决策器）
+# 单个问题（默认 Mock 决策器）
 python -m src.main --question "报销期限是多久？"
 
 # 结构化 JSON 输出（含完整 Trace）
@@ -58,7 +59,7 @@ python -m src.main --question "年假有几天？" --json
 # 指定最大执行步数
 python -m src.main --question "报销期限是多久？" --max-steps 6
 
-# 接入真实 LLM（需先配置 OPENAI_API_KEY）
+# 接入真实 LLM（需先配置 OPENAI_API_KEY 等环境变量）
 python -m src.main --question "报销期限是多久？" --use-chat-model
 ```
 
